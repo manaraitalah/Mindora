@@ -1,23 +1,27 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --mindora-primary: #1e4b3e;
+  --mindora-sage: #2e6b57;
+  --mindora-sage-light: #e7f1ec;
+  --mindora-lavender: #a78bfa;
+  --mindora-background: #f7f7f6;
+  --mindora-text: #0f1720;
+  --input-border: #dcdddd;
+  --text-color:#14181f;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-mindora-primary: var(--mindora-primary);
+  --color-mindora-sage: var(--mindora-sage);
+  --color-mindora-sage-light: var(--mindora-sage-light);
+  --color-mindora-lavender: var(--mindora-lavender);
+  --color-mindora-background: var(--mindora-background);
+  --color-mindora-text: var(--mindora-text);
+  --color-input-border: var(--input-border);
+  --text-color:var(--text-color)
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
 body {
   background: var(--background);

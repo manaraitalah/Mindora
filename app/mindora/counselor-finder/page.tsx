@@ -3,7 +3,7 @@ import { useMemo, useState } from "react";
 
 import CounselorHeader from "./components/counselor-header";
 import SearchBar from "./components/search-bar";
-import FilterChips, { CounselorCategory } from "./components/filter-bar";
+import FilterChips, { CounselorCategory } from "../../../components/ui/inputs/filter-bar";
 import CounselorList from "./components/counselor-list";
 
 export const counselors = [

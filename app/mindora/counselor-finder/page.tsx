@@ -1,9 +1,11 @@
-"use client"
+"use client";
 import { useMemo, useState } from "react";
 
 import CounselorHeader from "./components/counselor-header";
-import SearchBar from "./components/search-bar";
-import FilterChips, { CounselorCategory } from "../../../components/ui/inputs/filter-bar";
+import SearchBar from "../../../components/ui/inputs/search-bar";
+import FilterChips, {
+  CounselorCategory,
+} from "../../../components/ui/inputs/filter-bar";
 import CounselorList from "./components/counselor-list";
 
 export const counselors = [
@@ -21,8 +23,7 @@ export const counselors = [
       label: "Tomorrow",
       date: "10:00 AM",
     },
-    description:
-      "Helping people improve emotional balance and confidence.",
+    description: "Helping people improve emotional balance and confidence.",
   },
   {
     id: "2",
@@ -38,8 +39,7 @@ export const counselors = [
       label: "Tomorrow",
       date: "11:00 AM",
     },
-    description:
-      "Focused on trauma recovery and emotional wellness.",
+    description: "Focused on trauma recovery and emotional wellness.",
   },
   {
     id: "3",
@@ -62,9 +62,9 @@ export const counselors = [
 const CounselorFinder = () => {
   const [search, setSearch] = useState("");
 
-  const [category, setCategory] = useState<
-    CounselorCategory | "Best Match"
-  >("Best Match");
+  const [category, setCategory] = useState<CounselorCategory | "Best Match">(
+    "Best Match",
+  );
 
   const filteredCounselors = useMemo(() => {
     return counselors.filter((item) => {
@@ -84,15 +84,9 @@ const CounselorFinder = () => {
       <div className="mx-auto max-w-6xl">
         <CounselorHeader />
 
-        <SearchBar
-          value={search}
-          onChange={setSearch}
-        />
+        <SearchBar value={search} onChange={setSearch} />
 
-        <FilterChips
-          active={category}
-          onChange={setCategory}
-        />
+        <FilterChips active={category} onChange={setCategory} />
 
         <CounselorList items={filteredCounselors} />
       </div>

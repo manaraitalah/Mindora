@@ -1,4 +1,3 @@
-
 import CounselorCard, { Counselor } from "./counselor-card";
 
 interface Props {

@@ -1,8 +1,8 @@
-import React, { forwardRef, ButtonHTMLAttributes } from 'react';
+import React, { forwardRef } from "react";
 
-export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   isLoading?: boolean;
-  variant?: 'primary' | 'secondary' | 'outline';
+  variant?: "primary" | "secondary" | "outline";
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
 }
@@ -11,26 +11,60 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
       children,
-      className = '',
+      className = "",
       isLoading = false,
-      variant = 'primary',
+      variant = "primary",
       leftIcon,
       rightIcon,
       disabled,
       ...props
     },
-    ref
+    ref,
   ) => {
-    const baseStyles =
-      'w-full py-2.5 px-4 rounded-xl text-sm font-medium transition-all duration-200 flex items-center justify-center gap-2 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed';
+    const baseStyles = `
+      flex
+      w-full
+      items-center
+      justify-center
+      gap-2
+      rounded-xl
+      px-4
+      py-2.5
+      text-sm
+      font-medium
+      transition-all
+      duration-200
+      focus:outline-none
+      focus:ring-2
+      focus:ring-offset-2
+      disabled:cursor-not-allowed
+      disabled:opacity-50
+    `;
 
     const variants = {
-      primary:
-        'bg-mindora-primary text-white hover:bg-mindora-sage focus:ring-mindora-primary active:scale-[0.99]',
-      secondary:
-        'bg-mindora-sage-light text-mindora-primary hover:bg-mindora-sage/20 focus:ring-mindora-sage',
-      outline:
-        'border border-mindora-primary text-mindora-primary hover:bg-mindora-sage-light focus:ring-mindora-primary',
+      primary: `
+        bg-mindora-primary
+        text-white
+        hover:bg-mindora-sage
+        focus:ring-mindora-primary
+        active:scale-[0.99]
+      `,
+
+      secondary: `
+        bg-mindora-sage-light
+        text-mindora-primary
+        hover:bg-mindora-sage/20
+        focus:ring-mindora-sage
+      `,
+
+      outline: `
+        border
+        border-mindora-primary
+        bg-background
+        text-mindora-primary
+        hover:bg-mindora-sage-light
+        focus:ring-mindora-primary
+      `,
     };
 
     return (
@@ -41,7 +75,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         {...props}
       >
         {isLoading ? (
-          <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+          <span className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
         ) : (
           <>
             {leftIcon}
@@ -51,9 +85,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         )}
       </button>
     );
-  }
+  },
 );
 
-Button.displayName = 'Button';
+Button.displayName = "Button";
 
 export default Button;

@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 import AboutSection from "./components/about-section";
-import DayPicker from "./components/day-picker";
+import DayPicker from "../../../../components/ui/inputs/day-picker";
 import ProfileActions from "./components/profile-action";
 import ProfileHeader from "./components/profile-header";
 import ProfileTabs from "./components/profile-tabs";
@@ -56,11 +56,7 @@ export const counselorProfile = {
   ],
   languages: ["Spanish", "English"],
 };
-export const availableTimes = [
-  "09:00 AM",
-  "10:00 AM",
-  "11:00 AM",
-];
+export const availableTimes = ["09:00 AM", "10:00 AM", "11:00 AM"];
 const Page = () => {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(
     new Date(2026, 9, 5),
@@ -87,15 +83,17 @@ const Page = () => {
             <div>
               <DayPicker
                 mode="single"
+                className="p-0"
+                variant="inline"
                 selected={selectedDate}
                 onSelect={setSelectedDate}
               />
-            
-                <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-                  {availableTimes.map((time) => (
-                    <div
-                      key={time}
-                      className="
+
+              <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+                {availableTimes.map((time) => (
+                  <div
+                    key={time}
+                    className="
                         rounded-xl
                         border
                         border-border-subtle
@@ -110,10 +108,10 @@ const Page = () => {
                         hover:border-brand-primary
                         hover:bg-surface-muted
                         "
-                    >
-                      {time}
-                    </div>
-                  ))}
+                  >
+                    {time}
+                  </div>
+                ))}
               </div>
             </div>
 

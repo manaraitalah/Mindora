@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import ActivitiesHeader from "./components/activity-header";
-import SearchBar from "../counselor-finder/components/search-bar";
+import SearchBar from "../../../components/ui/inputs/search-bar";
 import RecommendedSection from "./components/recommended-section";
 import CategoriesSidebar from "./components/category-sidebar";
 import RecentlyCompleted from "./components/completed-activities";

@@ -1,13 +1,15 @@
+import { useRouter } from "next/navigation";
 
 interface CounselorActionsProps {
   onSave?: () => void;
   onBook?: () => void;
 }
 
-const CounselorActions = ({
-  onSave,
-  onBook,
-}: CounselorActionsProps) => {
+const CounselorActions = ({ onSave, onBook }: CounselorActionsProps) => {
+  const router = useRouter();
+  const handleViewProfile = () => {
+    router.push("counselor-finder/1");
+  };
   return (
     <div className="flex flex-col gap-3 sm:flex-row">
       <button
@@ -43,6 +45,7 @@ const CounselorActions = ({
           transition
           hover:bg-surface-muted
         "
+        onClick={handleViewProfile}
       >
         View Profile
       </button>
@@ -69,4 +72,3 @@ const CounselorActions = ({
 };
 
 export default CounselorActions;
-
